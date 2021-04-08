@@ -3,6 +3,8 @@ package com.example.learnalphabetsapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 public class BabaBlachSheep extends AppCompatActivity {
 
@@ -10,5 +12,11 @@ public class BabaBlachSheep extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baba_blach_sheep);
+        VideoView videoView=findViewById(R.id.videoView5);
+        videoView.setVideoPath("android.resource://"+ getPackageName()+"/"+R.raw.babablack);
+        MediaController mediaController=new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
+        videoView.start();
     }
 }
